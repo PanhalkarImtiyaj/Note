@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProNote | Professional Note-Taking App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1><i class="fas fa-book-open"></i> ProNote</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active"><a href="#"><i class="fas fa-sticky-note"></i> All Notes</a></li>
+                    <li><a href="#"><i class="fas fa-star"></i> Starred</a></li>
+                    <li><a href="#"><i class="fas fa-archive"></i> Archived</a></li>
+                    <li><a href="#"><i class="fas fa-trash"></i> Trash</a></li>
+                </ul>
+                <div class="sidebar-tags">
+                    <h3>Tags</h3>
+                    <ul>
+                        <li><span class="tag work"></span> Work</li>
+                        <li><span class="tag personal"></span> Personal</li>
+                        <li><span class="tag ideas"></span> Ideas</li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="theme-toggle"><i class="fas fa-moon"></i> Dark Mode</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search notes...">
+                </div>
+                <div class="header-actions">
+                    <button id="new-note-btn" class="btn primary">
+                        <i class="fas fa-plus"></i> New Note
+                    </button>
+                    <div class="user-avatar">
+                        <!-- <img src="" alt="User"> -->
+                    </div>
+                </div>
+            </header>
+
+            <div class="notes-grid" id="notes-container">
+                <!-- Notes will be dynamically inserted here -->
+            </div>
+        </main>
+
+        <!-- Note Editor Modal -->
+        <div class="editor-modal" id="editor-modal">
+            <div class="editor-container">
+                <div class="editor-header">
+                    <input type="text" id="note-title" placeholder="Note Title">
+                    <div class="editor-actions">
+                        <button class="btn-icon" id="pin-note" title="Pin Note">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                        <button class="btn-icon" id="archive-note" title="Archive">
+                            <i class="fas fa-archive"></i>
+                        </button>
+                        <button class="btn-icon" id="delete-note" title="Delete">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                        <button class="btn-icon" id="close-editor" title="Close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="editor-toolbar">
+                    <select id="note-tags">
+                        <option value="">Select Tag</option>
+                        <option value="work">Work</option>
+                        <option value="personal">Personal</option>
+                        <option value="ideas">Ideas</option>
+                    </select>
+                    <div class="formatting-tools">
+                        <button class="btn-icon" data-command="bold" title="Bold"><i class="fas fa-bold"></i></button>
+                        <button class="btn-icon" data-command="italic" title="Italic"><i class="fas fa-italic"></i></button>
+                        <button class="btn-icon" data-command="underline" title="Underline"><i class="fas fa-underline"></i></button>
+                        <button class="btn-icon" data-command="insertUnorderedList" title="Bullet List"><i class="fas fa-list-ul"></i></button>
+                        <button class="btn-icon" data-command="insertOrderedList" title="Numbered List"><i class="fas fa-list-ol"></i></button>
+                        <button class="btn-icon" data-command="createLink" title="Link"><i class="fas fa-link"></i></button>
+                    </div>
+                </div>
+                <div class="editor-content" id="note-content" contenteditable="true"></div>
+                <div class="editor-footer">
+                    <div class="word-count">0 words</div>
+                    <button class="btn primary" id="save-note">Save Note</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
